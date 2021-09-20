@@ -18,5 +18,5 @@ db.on('error', err => {
 })
 
 module.exports = {
-
+    User: require('./User')
 }
