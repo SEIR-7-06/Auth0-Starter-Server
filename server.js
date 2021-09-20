@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 // Controllers
+app.use('/favoriteFoods', require('./controllers/favoriteFoods'))
 
 
 // Routes
