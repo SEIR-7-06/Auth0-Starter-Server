@@ -5,6 +5,7 @@ const express = require('express')
 const rowdy = require('rowdy-logger')
 const morgan = require('morgan')
 const cors = require('cors')
+const jwtCheck = require('./middleware/jwtCheck')
 
 // App Variables
 const app = express()
@@ -18,8 +19,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 // Controllers
-app.use('/favoriteFoods', require('./controllers/favoriteFoods'))
-
+app.use('/favoriteFoods', jwtCheck, require('./controllers/favoriteFoods'))
+app.use('/auth', require('./controllers/auth'))
 
 // Routes
 app.get('/', (req, res) => {
